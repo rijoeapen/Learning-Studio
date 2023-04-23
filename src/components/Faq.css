@@ -1,8 +1,8 @@
 .image {
   background-image: url("src/assets/Images/pexels-leeloo-thefirst-5428829.jpg");
-  height: 250px;
+  height: 200px;
   background-size: cover;
-  background-position-y: 60%;
+  background-position-y: 55%;
   margin-bottom: 4rem;
 }
 
