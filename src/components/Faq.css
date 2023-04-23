@@ -1,0 +1,65 @@
+.image {
+  background-image: url("src/assets/Images/pexels-leeloo-thefirst-5428829.jpg");
+  height: 250px;
+  background-size: cover;
+  background-position-y: 60%;
+  margin-bottom: 4rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.accordion {
+  width: 700px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.item {
+  box-shadow: 0 0 3.2rem rgba(0, 0, 0, 0.1);
+  padding: 2.4rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 2.4rem;
+  row-gap: 3.2rem;
+  align-items: center;
+}
+
+.number,
+.title {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.number {
+  color: #ced4da;
+}
+
+ion-icon {
+  font-size: 2.4rem;
+  color: #795c34;
+}
+
+.content {
+  grid-column: 2/3;
+  font-size: 1.2rem;
+  transition: "all 3s";
+}
+
+.content p {
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+
+.open {
+  color: #795c34;
+}
+
+.open-border {
+  border-top: 4px solid #795c34;
+}
