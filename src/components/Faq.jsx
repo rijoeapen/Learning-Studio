@@ -64,7 +64,10 @@ const Faq = ({ content, setContent }) => {
                     name="remove-circle-outline"
                     onClick={() => collapseFn(index)}
                   ></ion-icon>
-                  <div className={`content `}>
+                  <div
+                    className={`content `}
+                    style={{ wordBreak: "break-word" }}
+                  >
                     <p>{item.content}</p>
                   </div>
                 </>
