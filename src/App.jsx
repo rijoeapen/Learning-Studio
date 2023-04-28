@@ -1,10 +1,16 @@
 import { useState } from "react";
 import "./App.css";
 import "./components/Forms.css";
-import Forms from "./components/Forms";
+import Title from "./components/Title";
 
 function App() {
-  return <Forms />;
+  const [hide, setHide] = useState(false);
+  return (
+    <>
+      {!hide && <Title />}
+      <button onClick={() => setHide(!hide)}>Click Me</button>
+    </>
+  );
 }
 
 export default App;
