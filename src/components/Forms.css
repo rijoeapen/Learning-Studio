@@ -1,0 +1,79 @@
+.container {
+  max-width: 40rem;
+  width: 100%;
+  padding: 2.4rem;
+  margin: 4rem 0;
+  background-color: #fff;
+}
+
+form h1 {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+form .caption {
+  font-size: 1.6rem;
+  color: rgb(163, 163, 163);
+  margin-bottom: 2rem;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-column label {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.form-column input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(163 163 163 / 72%);
+  transition: border-bottom-color 0.2s ease;
+}
+.form-column .error {
+  color: red;
+}
+
+.form-column input:focus {
+  border-bottom-color: #f29a31;
+}
+
+.form-column input[type="date"],
+.form-column select {
+  border: 1px solid rgb(163 163 163 / 72%);
+  padding: 1rem;
+}
+
+.group {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.group label {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+form button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #9eca8a;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+form button:hover {
+  background-color: #c1b951;
+}
