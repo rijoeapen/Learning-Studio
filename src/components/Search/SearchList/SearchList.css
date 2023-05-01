@@ -1,0 +1,19 @@
+.search-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 40rem;
+  overflow: auto;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #acc8e5c9;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: #acc8e5;
+}

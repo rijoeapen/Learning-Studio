@@ -1,16 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import "./components/Forms.css";
-import Title from "./components/Title";
+import Search from "./components/Search/Search";
 
 function App() {
-  const [hide, setHide] = useState(false);
-  return (
-    <>
-      {!hide && <Title />}
-      <button onClick={() => setHide(!hide)}>Click Me</button>
-    </>
-  );
+  return <Search />;
 }
 
 export default App;

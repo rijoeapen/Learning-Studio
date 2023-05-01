@@ -14,8 +14,8 @@ body {
   line-height: 1;
   padding: 1rem;
   min-height: 100vh;
-  background-image: linear-gradient(to right top, #c0d1d1, #9dd1bb, #9eca8a, #c1b951, #f29a31);
-  background-repeat: no-repeat;
+  /* background-image: linear-gradient(to right top, #c0d1d1, #9dd1bb, #9eca8a, #c1b951, #f29a31); */
+  /* background-repeat: no-repeat; */
 }
 
 #root {
@@ -23,5 +23,5 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
