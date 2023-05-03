@@ -10,12 +10,12 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  color: #343a40;
+  color: #8FA8C1;
   line-height: 1;
   padding: 1rem;
   min-height: 100vh;
-  /* background-image: linear-gradient(to right top, #c0d1d1, #9dd1bb, #9eca8a, #c1b951, #f29a31); */
-  /* background-repeat: no-repeat; */
+  background-image: radial-gradient(circle, #000000, #10060d, #170d19, #161525, #091c32);
+  background-repeat: no-repeat;
 }
 
 #root {

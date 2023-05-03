@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Search from "./components/Search/Search";
+import Todo from "./components/Todo/Todo";
 
 function App() {
-  return <Search />;
+  return <Todo />;
 }
 
 export default App;
