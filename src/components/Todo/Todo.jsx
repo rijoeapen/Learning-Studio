@@ -1,12 +1,28 @@
 import "./Todo.css";
 import Button from "./Button/Button";
 import Input from "./Input/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 const Todo = () => {
   const [list, setList] = useState([]);
   const [item, setItem] = useState("");
-  const [editIndex, setEditIndex] = useState("");
+  const [editId, setEditId] = useState("");
   const [updateItem, setUpdateItem] = useState("");
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("list"))) {
+      setList(JSON.parse(localStorage.getItem("list")));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (list.length > 0) {
+      localStorage.setItem("list", JSON.stringify(list));
+    } else {
+      localStorage.removeItem("list");
+    }
+  }, [list]);
 
   const handleChange = (event) => {
     setItem(event.target.value);
@@ -15,22 +31,22 @@ const Todo = () => {
   const buttonHandle = () => {
     if (item.trim().length > 0) {
       setList((currList) => {
-        return [{ item: item, complete: false }, ...currList];
+        return [{ item: item, complete: false, id: uuidv4() }, ...currList];
       });
     }
     setItem("");
     clearState();
   };
 
-  const editClick = (index) => {
-    setEditIndex(index);
-    setUpdateItem(list[index].item);
+  const editClick = (listItem) => {
+    setEditId(listItem.id);
+    setUpdateItem(listItem.item);
   };
 
-  const deleteItem = (index) => {
+  const deleteItem = (listItem) => {
     clearState();
     const newList = list.filter((item, key) => {
-      return key !== index;
+      return item.id !== listItem.id;
     });
     setList(newList);
   };
@@ -40,12 +56,28 @@ const Todo = () => {
   };
 
   const saveHandler = () => {
+    let isChange = false;
     if (updateItem.length > 0) {
-      const newList = [...list];
-      newList[editIndex].item = updateItem;
-      setList(newList);
+      const updatedList = list.map((listItem) => {
+        if (editId === listItem.id && listItem.item !== updateItem) {
+          listItem.item = updateItem;
+          isChange = true;
+        }
+        return listItem;
+      });
+      if (isChange) {
+        setList(updatedList);
+      }
     }
     clearState();
+  };
+
+  const markComplete = (index) => {
+    const newList = [...list];
+    if (!newList[index].complete) {
+      newList[index].complete = true;
+      setList(newList);
+    }
   };
 
   const cancelHandler = () => {
@@ -53,7 +85,7 @@ const Todo = () => {
   };
 
   const clearState = () => {
-    setEditIndex("");
+    setEditId("");
     setUpdateItem("");
   };
 
@@ -85,28 +117,33 @@ const Todo = () => {
         <ul className="list-items">
           {list.map((list, index) => {
             return (
-              <li className="list-item" key={index}>
-                {editIndex !== index && (
+              <li className="list-item" key={list?.id}>
+                {editId !== list?.id && (
                   <div className="view-row">
-                    <p className="view-row-text">{list.item}</p>
+                    <p
+                      className={`view-row-text ${list.complete ? "line" : ""}`}
+                      onClick={() => markComplete(index)}
+                    >
+                      {list.item}
+                    </p>
                     <div className="view-row-action">
                       <ion-icon
                         name="create-outline"
                         onClick={() => {
-                          editClick(index);
+                          editClick(list);
                         }}
                       ></ion-icon>
                       <ion-icon
                         name="trash-outline"
                         onClick={() => {
-                          deleteItem(index);
+                          deleteItem(list);
                         }}
                       ></ion-icon>
                     </div>
                   </div>
                 )}
 
-                {editIndex === index && (
+                {editId === list?.id && (
                   <div className="edit-row">
                     <Input
                       type="text"
