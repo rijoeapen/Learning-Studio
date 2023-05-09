@@ -3,6 +3,7 @@ import "./MovieInput.css";
 
 const MovieInput = () => {
   const { setInput } = useInputChange("movie");
+
   return (
     <section className="movie-input-container">
       <input

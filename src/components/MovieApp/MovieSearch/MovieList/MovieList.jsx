@@ -7,6 +7,7 @@ import { themes } from "../../constants";
 const MovieList = () => {
   const { movieList } = useContext(MovieContext);
   const { theme } = useContext(ThemeContext);
+
   return (
     <section className="movie-list-container">
       <div className="movie-list">

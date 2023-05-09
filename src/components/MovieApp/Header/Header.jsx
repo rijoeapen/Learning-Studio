@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext";
 import { themes } from "../constants";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Header = () => {
   const navigate = useNavigate();

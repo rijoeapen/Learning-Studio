@@ -3,7 +3,7 @@ import { themes } from "../constants";
 
 export const ThemeContext = createContext();
 
-export const ThemeProvider = ({children}) => {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {

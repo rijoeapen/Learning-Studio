@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { useInputChange } from "../customHooks/useInputChange";
 
 export const MovieContext = createContext();
 
