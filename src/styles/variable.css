@@ -1,0 +1,10 @@
+:root {
+  --btn-primary-color: #e50914;
+  --text-primary-color: #d62d30;
+  --text-dark-primary-color: #fff;
+  --text-light-primary-color: #000;
+  --bg-dark-primary: #fff;
+  --bg-light-primary: rgba(0, 0, 0, 0.9);
+  --box-shadow-dark: 5px 5px rgba(255, 255, 255, 0.15);
+  --box-shadow-light: 5px 5px rgba(0, 0, 0, 0.15);
+}

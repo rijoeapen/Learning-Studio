@@ -1,0 +1,23 @@
+@import url("../../../../styles/variable.css");
+
+.movie-list-container {
+  max-width: 120rem;
+  margin: 0 auto 6rem auto;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  row-gap: 6rem;
+}
+
+.movie-list span,
+.movie-list img {
+  border-radius: 0.4rem;
+}
+
+.movie-list span img {
+  width: 16rem;
+  height: 24rem;
+}

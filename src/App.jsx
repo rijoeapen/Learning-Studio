@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Todo from "./components/Todo/Todo";
+import MovieApp from "./components/MovieApp/MovieApp";
 
 function App() {
-  return <Todo />;
+  return <MovieApp />;
 }
 
 export default App;

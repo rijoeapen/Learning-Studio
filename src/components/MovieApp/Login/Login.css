@@ -1,0 +1,75 @@
+@import url("../../../styles/variable.css");
+
+.login-container {
+  max-width: 45rem;
+  width: 100%;
+  margin: 6rem auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  border-radius: 0.4rem;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 6.8rem;
+}
+
+.sign-in-form h2 {
+  margin: 4.8rem 0 3.1rem 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.sign-in-form input {
+  font-size: 16px;
+  color: var(--text-dark-primary-color);
+  margin-bottom: 1.6rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.4rem;
+  background-color: #333333;
+  border: 1px solid #333333;
+  outline: none;
+}
+
+.sign-in-form p {
+  text-align: center;
+  padding: 10px;
+  color: #e50914;
+}
+
+.sign-in-form button {
+  border: none;
+  padding: 1.5rem;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  background-color: var(--btn-primary-color);
+  color: #fff;
+  border-radius: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.forget-password {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #b3b3b3;
+  text-align: end;
+  margin-bottom: 14.5rem;
+}
+
+.signup {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #737373;
+}
+
+.signup-link {
+  text-decoration: none;
+  color: #fff;
+}

@@ -1,0 +1,21 @@
+.movie-input-container {
+  position: relative;
+  max-width: 85rem;
+  margin: 4rem auto 8rem auto;
+}
+
+input {
+  width: 100%;
+  padding: 1.5rem;
+  padding-left: 4rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+}
+
+.movie-input-container ion-icon {
+  font-size: 1.8rem;
+  position: absolute;
+  left: 14px;
+  top: 14px;
+}
