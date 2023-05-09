@@ -7,7 +7,7 @@ import { ThemeContext } from "../context/ThemeContext";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext);
+  const { logout, auth } = useContext(AuthContext);
   const { theme, setTheme } = useContext(ThemeContext);
 
   const logoutUser = () => {
@@ -52,23 +52,25 @@ const Header = () => {
           {theme === themes.dark && <ion-icon name="sunny-outline"></ion-icon>}
           {theme === themes.light && <ion-icon name="moon-outline"></ion-icon>}
         </button>
-        <button
-          className="btn-logout"
-          onClick={logoutUser}
-          style={{
-            backgroundColor:
-              theme === themes.light
-                ? "var(--bg-light-primary)"
-                : "var(--bg-dark-primary)",
-            color:
-              theme === themes.light
-                ? "var(--text-dark-primary-color)"
-                : "var(----text-light-primary-color)",
-          }}
-        >
-          <span>Logout</span>
-          <ion-icon name="person-circle-outline"></ion-icon>
-        </button>
+        {(auth || localStorage.getItem("auth_token")) && (
+          <button
+            className="btn-logout"
+            onClick={logoutUser}
+            style={{
+              backgroundColor:
+                theme === themes.light
+                  ? "var(--bg-light-primary)"
+                  : "var(--bg-dark-primary)",
+              color:
+                theme === themes.light
+                  ? "var(--text-dark-primary-color)"
+                  : "var(----text-light-primary-color)",
+            }}
+          >
+            <span>Logout</span>
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </button>
+        )}
       </div>
     </header>
   );
