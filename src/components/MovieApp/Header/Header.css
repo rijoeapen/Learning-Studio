@@ -36,6 +36,7 @@ header button {
 }
 
 .btn-light {
+  display: flex;
   background-color: transparent;
   color: #fff;
   border: none;

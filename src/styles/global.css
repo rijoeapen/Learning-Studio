@@ -47,3 +47,43 @@ ul {
 a {
   text-decoration: none;
 }
+
+@media (max-width: 400px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .app-name h1 {
+    font-size: 20px;
+  }
+
+  .app-name img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .app-profile button {
+    padding: 0.5rem;
+  }
+
+  .app-profile button ion-icon {
+    font-size: 20px;
+  }
+
+  .app-profile .btn-logout span {
+    display: none;
+  }
+
+  .sign-in-form h2 {
+    font-size: 20px;
+  }
+
+  .forget-password {
+    margin-bottom: 4rem;
+  }
+
+  .footer-container ul {
+    font-size: 10px;
+  }
+}
