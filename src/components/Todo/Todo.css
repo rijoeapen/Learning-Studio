@@ -25,7 +25,6 @@ header h1 {
 }
 
 .item-container {
-  margin: 0 5rem 0 5rem;
   height: 36rem;
   overflow: auto;
 }
@@ -34,6 +33,7 @@ header h1 {
   display: flex;
   flex-direction: column;
   border-bottom: 1px dotted #8fa8c1;
+  padding: 0 5rem 0 5rem;
 }
 
 .view-row {
