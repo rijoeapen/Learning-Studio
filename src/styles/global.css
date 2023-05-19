@@ -11,9 +11,10 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  /* align-items: center; */
 }
 
 .dark {
@@ -35,9 +36,9 @@ body {
 }
 
 #root {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
 ul {

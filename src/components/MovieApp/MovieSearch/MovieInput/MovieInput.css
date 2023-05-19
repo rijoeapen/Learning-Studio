@@ -4,7 +4,7 @@
   margin: 4rem auto 8rem auto;
 }
 
-input {
+.movie-input-container input {
   width: 100%;
   padding: 1.5rem;
   padding-left: 4rem;

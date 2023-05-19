@@ -6,14 +6,15 @@ import "./styles/global.css";
 import { ThemeProvider } from "./components/MovieApp/context/ThemeContext";
 import { AuthProvider } from "./components/MovieApp/context/AuthContext";
 import { MovieProvider } from "./components/MovieApp/context/MovieContext";
-
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThemeProvider>
-    <AuthProvider>
-      <MovieProvider>
-        <RouterProvider router={router} />
-      </MovieProvider>
-    </AuthProvider>
-  </ThemeProvider>
+  <App />
+  // <ThemeProvider>
+  // <AuthProvider>
+  //   <MovieProvider>
+  //     <RouterProvider router={router} />
+  //   </MovieProvider>
+  // </AuthProvider>
+  // </ThemeProvider>
 );

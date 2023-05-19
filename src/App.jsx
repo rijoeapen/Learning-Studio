@@ -1,9 +1,8 @@
-import { useState } from "react";
 import "./App.css";
-import MovieApp from "./components/MovieApp/MovieApp";
+import Users from "./components/Users/Users";
 
 function App() {
-  return <MovieApp />;
+  return <Users />;
 }
 
 export default App;
