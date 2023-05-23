@@ -3,26 +3,32 @@ import Button from "./Button/Button";
 import Input from "./Input/Input";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 const Todo = () => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState({});
   const [item, setItem] = useState("");
   const [editId, setEditId] = useState("");
   const [updateItem, setUpdateItem] = useState("");
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("list"))) {
-      setList(JSON.parse(localStorage.getItem("list")));
-    }
+    axios.get("http://localhost:4001/api/todos").then((todos) => {
+      setList(todos.data);
+    });
+    //w/o backend
+    // if (JSON.parse(localStorage.getItem("list"))) {
+    //   setList(JSON.parse(localStorage.getItem("list")));
+    // }
   }, []);
 
-  useEffect(() => {
-    if (list.length > 0) {
-      localStorage.setItem("list", JSON.stringify(list));
-    } else {
-      localStorage.removeItem("list");
-    }
-  }, [list]);
+  //old code for without backend
+  // useEffect(() => {
+  //   if (list.length > 0) {
+  //     localStorage.setItem("list", JSON.stringify(list));
+  //   } else {
+  //     localStorage.removeItem("list");
+  //   }
+  // }, [list]);
 
   const handleChange = (event) => {
     setItem(event.target.value);
@@ -30,12 +36,26 @@ const Todo = () => {
 
   const buttonHandle = () => {
     if (item.trim().length > 0) {
-      setList((currList) => {
-        return [{ item: item, complete: false, id: uuidv4() }, ...currList];
-      });
+      axios
+        .post("http://localhost:4001/api/todo", { item })
+        .then((todos) => {
+          setList(todos.data);
+          setItem("");
+          clearState();
+        })
+        .catch((err) => {
+          console.log(err);
+          setItem("");
+          clearState();
+        });
+      //w/o backend
+      // setList((currList) => {
+      //   return [{ item: item, complete: false, id: uuidv4() }, ...currList];
+      // });
     }
-    setItem("");
-    clearState();
+    //w/o backend
+    // setItem("");
+    // clearState();
   };
 
   const editClick = (listItem) => {
@@ -44,11 +64,25 @@ const Todo = () => {
   };
 
   const deleteItem = (listItem) => {
-    clearState();
-    const newList = list.filter((item, key) => {
-      return item.id !== listItem.id;
-    });
-    setList(newList);
+    axios
+      .delete("http://localhost:4001/api/todo/delete", {
+        data: listItem,
+      })
+      .then((todos) => {
+        setList(todos.data);
+        clearState();
+      })
+      .catch((err) => {
+        console.log(err);
+        clearState();
+      });
+
+    // w/o backend
+    // clearState();
+    // const newList = list.filter((item, key) => {
+    //   return item.id !== listItem.id;
+    // });
+    // setList(newList);
   };
 
   const updateChange = (event) => {
@@ -56,27 +90,55 @@ const Todo = () => {
   };
 
   const saveHandler = () => {
-    let isChange = false;
-    if (updateItem.length > 0) {
-      const updatedList = list.map((listItem) => {
-        if (editId === listItem.id && listItem.item !== updateItem) {
-          listItem.item = updateItem;
-          isChange = true;
-        }
-        return listItem;
+    axios
+      .put("http://localhost:4001/api/todo/update", { editId, updateItem })
+      .then((todos) => {
+        setList(todos.data);
+        clearState();
+      })
+      .catch((err) => {
+        console.log(err);
+        clearState();
       });
-      if (isChange) {
-        setList(updatedList);
-      }
-    }
-    clearState();
+
+    //w/o backend
+    // let isChange = false;
+    // if (updateItem.length > 0) {
+    //   const updatedList = list.map((listItem) => {
+    //     if (editId === listItem.id && listItem.item !== updateItem) {
+    //       listItem.item = updateItem;
+    //       isChange = true;
+    //     }
+    //     return listItem;
+    //   });
+    //   if (isChange) {
+    //     setList(updatedList);
+    //   }
+    // }
+    // clearState();
   };
 
-  const markComplete = (index) => {
-    const newList = [...list];
-    if (!newList[index].complete) {
-      newList[index].complete = true;
-      setList(newList);
+  const a = [];
+
+  const markComplete = (selected) => {
+    //w/o backend
+    // const newList = [...list];
+    // if (!newList[index].complete) {
+    //   newList[index].complete = true;
+    //   setList(newList);
+    // }
+
+    //with backend
+
+    if (!selected.complete) {
+      axios
+        .put("http://localhost:4001/api/todo/complete", selected)
+        .then((todos) => {
+          setList(todos.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
@@ -115,35 +177,37 @@ const Todo = () => {
       </section>
       <section className="item-container">
         <ul className="list-items">
-          {list.map((list, index) => {
+          {Object.keys(list).map((key) => {
             return (
-              <li className="list-item" key={list?.id}>
-                {editId !== list?.id && (
+              <li className="list-item" key={list[key]?.id}>
+                {editId !== list[key]?.id && (
                   <div className="view-row">
                     <p
-                      className={`view-row-text ${list.complete ? "line" : ""}`}
-                      onClick={() => markComplete(index)}
+                      className={`view-row-text ${
+                        list[key]?.complete ? "line" : ""
+                      }`}
+                      onClick={() => markComplete(list[key])}
                     >
-                      {list.item}
+                      {list[key].item}
                     </p>
                     <div className="view-row-action">
                       <ion-icon
                         name="create-outline"
                         onClick={() => {
-                          editClick(list);
+                          editClick(list[key]);
                         }}
                       ></ion-icon>
                       <ion-icon
                         name="trash-outline"
                         onClick={() => {
-                          deleteItem(list);
+                          deleteItem(list[key]);
                         }}
                       ></ion-icon>
                     </div>
                   </div>
                 )}
 
-                {editId === list?.id && (
+                {editId === list[key]?.id && (
                   <div className="edit-row">
                     <Input
                       type="text"
