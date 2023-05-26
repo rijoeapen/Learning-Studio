@@ -1,0 +1,74 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 7rem;
+}
+
+header h1 {
+  font-size: 50px;
+  font-weight: 400;
+  color: #000000;
+}
+
+header div p {
+  font-size: 32px;
+  font-weight: 400;
+  color: #acacac;
+}
+
+header label p {
+  font-size: 22px;
+  font-weight: 400;
+  color: #acacac;
+}
+
+header ion-icon {
+  font-size: 30px;
+  color: #eed8c0;
+}
+
+.gallery-container {
+  max-width: 95rem;
+  margin: 2.5rem auto;
+}
+
+.gallery-container progress {
+  width: 100%;
+}
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.3rem;
+}
+
+progress {
+  background-color: #fff;
+  -webkit-appearance: none;
+  accent-color: #efd9c2;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #fff;
+  height: 0.7rem;
+  border-radius: 1rem;
+}
+
+progress::-webkit-progress-value {
+  background-color: #efd9c2;
+  height: 0.7rem;
+  border-radius: 1rem;
+}
+
+.progress-bar-container label {
+  text-align: center;
+}
+
+.image-galley {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 2.3rem;
+}

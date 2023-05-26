@@ -1,0 +1,42 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 50rem;
+  width: 100%;
+  background-color: #fff;
+}
+
+.modal-body img {
+  width: 40rem;
+  height: 40rem;
+  object-fit: contain;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-footer {
+  padding: 1rem;
+  align-self: end;
+}
+.modal-btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: grey;
+  border-radius: 5px;
+}
